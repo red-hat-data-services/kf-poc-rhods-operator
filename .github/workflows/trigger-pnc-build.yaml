@@ -1,0 +1,28 @@
+name: Trigger PNC Build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-pnc-build:
+    runs-on:
+      - self-hosted
+      - pnc
+    container:
+      image: quay.io/redhat-user-workloads/konflux-jbs-pnc-tenant/pnc/pnc-cli:48a761b5093bc474850b2ebcf06641825940deb7
+      options: --user root
+    steps:
+      - name: Get Current branch name
+        id: get_branch
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      - name: Init
+        id: init
+        run: |
+          abs_cwd=$(pwd)
+          work_dir=pnc-$(date +%s)
+          echo $work_dir
+
