@@ -11,7 +11,7 @@ require (
 	github.com/openshift/addon-operator/apis v0.0.0-20230919043633-820afed15881
 	github.com/openshift/api v0.0.0-20230823114715-5fdd7511b790
 	github.com/openshift/custom-resource-status v1.1.2
-	github.com/operator-framework/api v0.18.0
+	github.com/operator-framework/api v0.30.0
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring v0.68.0
 	github.com/spf13/afero v1.10.0
